@@ -1,5 +1,5 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include <ctype.h>
+#include <stdarg.h>
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -31,7 +31,7 @@ void error(char *fmt, ...) {
     va_list ap;
     va_start(ap, fmt);
     vfprintf(stderr, fmt, ap);
-    fprintf(strerr, "\n");
+    fprintf(stderr, "\n");
     exit(1);
 }
 
@@ -90,7 +90,7 @@ Token *tokenize(char *p) {
 
         if (*p == '+' || *p == '-') {
             cur = new_token(TK_RESERVED, cur, p++);
-            coutinue;
+            continue;
         }
 
         if (isdigit(*p)) {
@@ -99,7 +99,7 @@ Token *tokenize(char *p) {
             continue;
         }
 
-        error("トークナイズできません。);
+        error("トークナイズできません。");
     }
 
     new_token(TK_EOF, cur, p);

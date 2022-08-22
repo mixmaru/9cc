@@ -26,5 +26,20 @@ assert 4 '(3+5)/2'
 assert 1 '-3+4'
 assert 8 '-(-(3+5))'
 assert 15 '-3*-5'
+assert 1 '12==12'
+assert 0 '12==1'
+assert 1 '12!=1'
+assert 0 '12!=12'
+
+assert 1 '12<13'
+assert 0 '12<1'
+assert 1 '12>1'
+assert 0 '12>13'
+assert 1 '12>=12'
+assert 0 '12>=13'
+assert 1 '12<=12'
+assert 0 '12<=11'
+
+assert 1 '(5+20-4)==21'
 
 echo OK
